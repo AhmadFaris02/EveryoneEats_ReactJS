@@ -9,13 +9,20 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
         height: 600px;
         background-color: #BDFFB1;
         /* justify-content: center; */
-        justify-content: space-around;
+        padding-left: 100px;
         padding-top: 50px; 
     }
 
     .HeaderTextSection{
         padding: 50px;
         width: 800px;
+        
+    }
+
+    .HeaderPhoto{
+        justify-content: center;
+        padding-right: 670px;
+        position: relative;
     }
 
     h1{
@@ -36,6 +43,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 
     #borderimg1 {
         border-radius: 50%;
+        width: 450px;
         /* border: 10px solid transparent;
         padding: 15px;
         border-image: url(./photo/HeaderPhoto1.png) 50 round; */

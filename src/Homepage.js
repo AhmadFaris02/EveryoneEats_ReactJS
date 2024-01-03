@@ -1,35 +1,41 @@
 import React from "react";
 import "./Homepage.css";
+import { Padding } from "@mui/icons-material";
 
 function Homepage() {
   return (
     <div>
       <div className="Header">
         <div className="HeaderTextSection">
-          <h3>Everyone Eats</h3>
-          <br></br>
-          <h1>Serving the Community</h1>
-          <br></br>
-          <p>
-            Established in 2023. The aim is to end food hunger, achieve food
-            security, improve nutrition, and promote sustainable agriculture by
-            providing alternative ways for people to improve the food donation
-            process
-          </p>
+              <h3>Everyone Eats</h3>
+              <br></br>
+              <h1>Serving the Community</h1>
+              <br></br>
+              <p>
+                Established in 2023. The aim is to end food hunger, achieve food
+                security, improve nutrition, and promote sustainable agriculture by
+                providing alternative ways for people to improve the food donation
+                process
+              </p>
         </div>
 
-        <div>
-          <img
-            src={require("./Giving food.jpg")}
-            alt="HelpingPhoto.png"
-            id="borderimg1"
-            // display="block" margin-left= "auto" margin-right= "auto"
-          />
-          {/* <img src={require("./photo/HeaderPhoto1.png")} alt="HelpingPhoto.png" 
-                    display="block" margin-left= "auto" margin-right= "auto"   />*/}
+        <div className="HeaderPhoto">
+              
+              <img
+                
+                src={require("./Giving food.jpg")}
+                alt="HelpingPhoto.png"
+                id="borderimg1"
+                // display="block" margin-left= "auto" margin-right= "auto"
+              />
+            
+              {/* <img src={require("./photo/HeaderPhoto1.png")} alt="HelpingPhoto.png" 
+                        display="block" margin-left= "auto" margin-right= "auto"   />*/}
         </div>
+        
         {/* <img src={require("./photo/HeaderPhoto.png")} alt="HeaderPhoto.png" width={'1688px'}/> */}
       </div>
+      
       <br></br>
       <div className="Information">
         <div className="InformationBox">
