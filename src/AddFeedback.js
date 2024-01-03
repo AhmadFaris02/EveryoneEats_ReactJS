@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import {
   collection,
   addDoc,
@@ -12,7 +13,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { Button, Form } from "react-bootstrap";
 import RatingSelect from "./RatingSelect";
 import AddFeedbackCard from "./AddFeedbackCard";
-import Swal from 'sweetalert2';
+import Swal from "sweetalert2";
 
 const customStyles = {
   // Define your custom styles here
@@ -120,6 +121,11 @@ const AddFeedback = () => {
   const [selectedRating, setSelectedRating] = useState(0);
   const [feedbackData, setFeedbackData] = useState([]);
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const currentInterface = location.pathname.split("/")[1];
+
   const formRef = useRef(null);
 
   const handleFocus2 = () => {
@@ -211,8 +217,8 @@ const AddFeedback = () => {
 
   const swalWithBootstrapButtons = Swal.mixin({
     customClass: {
-      confirmButton: 'btn btn-success',
-      cancelButton: 'btn btn-danger',
+      confirmButton: "btn btn-success",
+      cancelButton: "btn btn-danger",
     },
     buttonsStyling: false,
   });
@@ -222,16 +228,17 @@ const AddFeedback = () => {
       event.preventDefault(); // Prevent the default form submission
       await handleSubmit(event); // Pass the event object to handleSubmit
       swalWithBootstrapButtons.fire({
-        title: 'Submitted!',
-        text: 'Your feedback has been submitted.',
-        icon: 'success',
+        title: "Submitted!",
+        text: "Your feedback has been submitted.",
+        icon: "success",
       });
+      navigate(`/${currentInterface}/ViewFeedback`);
     } catch (error) {
-      console.error('Error submitting feedback:', error);
+      console.error("Error submitting feedback:", error);
       swalWithBootstrapButtons.fire({
-        title: 'Error',
-        text: 'There was an error submitting your feedback.',
-        icon: 'error',
+        title: "Error",
+        text: "There was an error submitting your feedback.",
+        icon: "error",
       });
     }
   };
@@ -310,15 +317,14 @@ const AddFeedback = () => {
             <br></br>
 
             <div>
-            <Button
-              variant="success"
-              type="button"
-              onClick={(event) => handleConfirmSubmit(event)}
-            >
-              {' '}
-              Submit{' '}
-            </Button>
-
+              <Button
+                variant="success"
+                type="button"
+                onClick={(event) => handleConfirmSubmit(event)}
+              >
+                {" "}
+                Submit{" "}
+              </Button>
             </div>
           </Form>
         </header>
