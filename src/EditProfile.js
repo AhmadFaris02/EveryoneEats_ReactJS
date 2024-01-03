@@ -1,6 +1,6 @@
 import { updateDoc, doc } from "firebase/firestore";
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import { db } from "./Backend Firebase/FirebaseDatabase";
 import UserAuthContext from "./Login Page/UserAuthContext";
@@ -87,6 +87,11 @@ function EditProfile() {
   const { userDocument } = UserAuthContext();
   const { userData } = UserAuthContext();
 
+  const navigate = useNavigate();
+  const location = useLocation();
+
+  const currentInterface = location.pathname.split("/")[1];
+
   const handleFocus1 = () => {
     // To handle focus of input form of Full Name
     setIsFocused1(true);
@@ -161,6 +166,7 @@ function EditProfile() {
       updateDoc(userDocumentRef, updatedData);
       console.log("Document successfully updated!");
       alert("Document successfully updated!");
+      navigate(`/${currentInterface}/ViewProfile`);
     } catch (error) {
       console.error("Error updating document: " + error);
       alert("Error updating document");
@@ -251,16 +257,14 @@ function EditProfile() {
             <br></br>
 
             <div>
-              <Link to="/ViewProfile">
-                <Button
-                  variant="success"
-                  type="submit"
-                  onClick={handleButtonClick}
-                >
-                  {" "}
-                  Submit{" "}
-                </Button>
-              </Link>
+              <Button
+                variant="success"
+                type="submit"
+                onClick={handleButtonClick}
+              >
+                {" "}
+                Submit{" "}
+              </Button>
             </div>
           </Form>
         </header>
