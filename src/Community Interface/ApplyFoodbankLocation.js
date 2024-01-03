@@ -5,6 +5,7 @@ import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { db } from "../Backend Firebase/FirebaseDatabase";
 import { addDoc, collection } from "firebase/firestore";
+import Swal from "sweetalert2";
 import { Marker } from "react-map-gl";
 
 const inputStyle = {
@@ -146,7 +147,11 @@ function ApplyFoodbankLocation() {
       });
 
       console.log("Document written with ID: ", docRef.id);
-      alert("Your food bank location has been submitted");
+      Swal.fire({
+        title: "Success",
+        text: "Your food bank location has been submitted",
+        icon: "success",
+      });
     } catch (error) {
       console.error("Error adding the food bank location:", error);
       alert("Error adding the food bank location" + error.message);
