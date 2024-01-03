@@ -1,13 +1,26 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import UserAuthContext from "../../Login Page/UserAuthContext";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
+import { CiLogout } from "react-icons/ci";
 import { AdminSidebarData } from "./AdminSidebarData";
 import "../../Navbar.css";
 import { IconContext } from "react-icons";
 
 function AdminNavbar() {
   const [sidebar, setSidebar] = useState(false);
+  const { logout } = UserAuthContext();
+  const Navigate = useNavigate();
+
+  const userLogout = async () => {
+    try {
+      await logout();
+      Navigate("/");
+    } catch (error) {
+      console.error("Error during logout:", error);
+    }
+  };
 
   const showSidebar = () => setSidebar(!sidebar);
   return (
@@ -36,6 +49,10 @@ function AdminNavbar() {
                   </li>
                 );
               })}
+            </li>
+            <li className="logout-button" onClick={userLogout}>
+              <CiLogout />
+              <span>Logout</span>
             </li>
           </ul>
         </nav>

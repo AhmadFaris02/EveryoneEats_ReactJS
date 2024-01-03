@@ -1,0 +1,80 @@
+/* 
+body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
+.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
+.fa-anchor,.fa-coffee {font-size:200px} 
+*/
+
+    .Header{
+        display: flex;
+        height: 600px;
+        background-color: #BDFFB1;
+        /* justify-content: center; */
+        justify-content: space-around;
+        padding-top: 50px; 
+    }
+
+    .HeaderTextSection{
+        padding: 50px;
+        width: 800px;
+    }
+
+    h1{
+        text-align: unset;
+        font-size: 74px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    p{
+        font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        text-wrap: pretty;
+        font-size: 20PX;
+    }
+
+    h2{
+        color: white;
+    }
+
+    #borderimg1 {
+        border-radius: 50%;
+        /* border: 10px solid transparent;
+        padding: 15px;
+        border-image: url(./photo/HeaderPhoto1.png) 50 round; */
+      }
+
+    .Information{
+        display: flex;
+        padding: 50px;
+        background-color: #BDFFB1;
+        justify-content: center;
+        justify-content: space-around;
+    }
+
+    .InformationBox{
+        border-radius: 20px;
+        background-color: #a4ffbb;
+        width: 400px;
+        height: 400px;
+        text-align: center;
+        padding:10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        margin: '0 500px'; /* Adjust the margin as needed */
+    }
+
+    .InformationBox:hover{
+        border-radius: 20px;
+        background-color: #BDFFB1;
+        width: 400px;
+        height: 400px;
+        text-align: center;
+        padding:10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        margin: '0 500px'; /* Adjust the margin as needed */
+        width: 450px; /* Increased width on hover */
+        height: 450px; /* Increased height on hover */
+    }
+
+    .Footer{
+        padding-top: 10px;
+        background-color: #BDFFB1;
+        text-align: center;
+    }

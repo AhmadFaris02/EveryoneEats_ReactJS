@@ -1,10 +1,12 @@
 import React from "react";
-import DeleteFoodbank from "./DeleteFoodbank";
+import AdminNavbar from "./Admin Navbar/AdminNavbar";
+import { Outlet } from "react-router-dom";
 
 function AdminInterface() {
   return (
     <div>
-      <DeleteFoodbank />
+      <AdminNavbar />
+      <Outlet />
     </div>
   );
 }

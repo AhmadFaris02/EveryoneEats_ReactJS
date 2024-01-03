@@ -131,7 +131,7 @@ function DeleteFoodbank() {
           width: "80%",
         }}
       >
-        <h2 className="text-center p-4">Manage Location</h2>
+        <h1 className="text-center p-4">Manage Location</h1>
         <div className="container mt-3 p-3 border rounded bg-light">
           <div className="text-end">
             <GoSearch style={{ marginRight: "5px" }} />

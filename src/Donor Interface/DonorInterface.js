@@ -1,10 +1,12 @@
 import React from "react";
-import ViewProfile from "../ViewProfile";
+import DonorNavbar from "./Donor Navbar/DonorNavbar";
+import { Outlet } from "react-router-dom";
 
 function DonorInterface() {
   return (
     <div>
-      <ViewProfile />
+      <DonorNavbar />
+      <Outlet />
     </div>
   );
 }

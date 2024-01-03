@@ -1,0 +1,113 @@
+.App {
+    text-align: center;
+    
+  }
+
+.mapDetailsOverlay {
+    background-color: rgba(35, 55, 75, 0.9);
+  color: #fff;
+  padding: 6px 12px;
+  font-family: monospace;
+  z-index: 1;
+  position: absolute;
+  top: 1em;
+  left: 0;
+  margin: 12px;
+  border-radius: 4px;
+}
+
+.map-container {
+  
+    height: 600px;  /*If want to edit the height of the map*/
+  }
+  
+  
+  .mapContainer{
+    
+    width: 40%;
+    
+  }
+
+  * {
+    box-sizing: border-box;
+  }
+
+  .MapInformation {
+    width: 100%;
+    padding: 5px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow:   rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+                  rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                  rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+                  rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+                  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    margin-bottom: 10px;
+  }
+
+  .FoodbankInformation {
+    /*flex: 65%;  */
+    
+    padding: 5px;
+    text-align: center;
+    background-color: #fff;
+    border-radius: 25px;
+    box-shadow:   rgba(0, 0, 0, 0.25) 0px 54px 55px, 
+                  rgba(0, 0, 0, 0.12) 0px -12px 30px,
+                  rgba(0, 0, 0, 0.12) 0px 4px 6px, 
+                  rgba(0, 0, 0, 0.17) 0px 12px 13px, 
+                  rgba(0, 0, 0, 0.09) 0px -3px 5px;
+  }
+
+  body {
+    border-radius: 25px;  
+  
+          background: "white";
+          box-shadow: "35px 35px 61px #494646, -35px -35px 61px #c1baba";
+           background-color: #BDFFB1; 
+          /* background-color: #D6EAF8; */
+          
+          padding: "2rem";
+          width: "80%";
+}
+
+/*Jangan delete*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    box-shadow: 0 0 20px rgba(0,0,0,0.1);
+  }
+  
+  /*Jangan delete*/
+  th,
+  td {
+    padding: 15px;
+    background-color: rgba(255,255,255,0.2);
+    color: #fff;
+  }
+  
+  th {
+    text-align: left;
+  }
+  
+  thead th {
+    background-color: #55608f;
+  }
+  
+  tbody tr:hover {
+    background-color: rgba(255,255,255,0.3);
+  }
+  
+  td:hover:before {
+   
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -9999px;
+    bottom: -9999px;
+    z-index: -1;
+  }
+  h1{
+    text-align: center;
+  }

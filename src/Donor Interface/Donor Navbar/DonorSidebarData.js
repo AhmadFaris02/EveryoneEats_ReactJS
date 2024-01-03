@@ -1,25 +1,38 @@
 import React from "react";
-// import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
-import * as IoIcons from "react-icons/io";
+import * as BiIcons from "react-icons/bi";
+import * as RiIcons from "react-icons/ri";
+import * as MdIcons from "react-icons/md";
 
 export const DonorSidebarData = [
   {
     title: "Home",
-    path: "",
+    path: "Homepage",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
   {
-    title: "Donate",
+    title: "Donate Now",
     path: "AddDonation",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <BiIcons.BiDonateHeart />,
+    cName: "nav-text",
+  },
+  {
+    title: "View Location",
+    path: "ViewFoodbankLocation",
+    icon: <MdIcons.MdLocationPin />,
+    cName: "nav-text",
+  },
+  {
+    title: "Feedback",
+    path: "ViewFeedback",
+    icon: <MdIcons.MdOutlineFeedback />,
     cName: "nav-text",
   },
   {
     title: "Profile",
     path: "ViewProfile",
-    icon: <IoIcons.IoIosPaper />,
+    icon: <RiIcons.RiProfileLine />,
     cName: "nav-text",
   },
 ];

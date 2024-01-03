@@ -42,6 +42,7 @@ const customStyles = {
 
   container: {
     display: "flex",
+    height: "90vh",
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
@@ -57,7 +58,7 @@ const customStyles = {
     background: "858080",
     boxShadow: "35px 35px 61px #494646, -35px -35px 61px #c1baba",
     backgroundColor: "white",
-
+    width: "70%",
     padding: "2rem",
     //      boxShadow: '0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)'
   },

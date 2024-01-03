@@ -1,25 +1,20 @@
 import React from "react";
 import * as AiIcons from "react-icons/ai";
+import * as TfiIcons from "react-icons/tfi";
 import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
 
-export const AdminSidebarData = [
+export const CommunitySidebarData = [
   {
     title: "Home",
-    path: "Homepage",
+    path: "HomePage",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
   {
-    title: "Approve Location",
-    path: "ApproveFoodbankLocation",
-    icon: <MdIcons.MdAddLocationAlt />,
-    cName: "nav-text",
-  },
-  {
-    title: "Delete Location",
-    path: "DeleteLocation",
-    icon: <MdIcons.MdLocationOff />,
+    title: "Apply Location",
+    path: "ApplyFoodbankLocation",
+    icon: <TfiIcons.TfiWrite />,
     cName: "nav-text",
   },
   {

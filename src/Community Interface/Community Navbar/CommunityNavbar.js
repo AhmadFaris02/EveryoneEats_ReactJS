@@ -4,11 +4,11 @@ import UserAuthContext from "../../Login Page/UserAuthContext";
 import * as FaIcons from "react-icons/fa";
 import * as AiIcons from "react-icons/ai";
 import { CiLogout } from "react-icons/ci";
-import { DonorSidebarData } from "./DonorSidebarData";
+import { CommunitySidebarData } from "./CommunitySidebarData";
 import "../../Navbar.css";
 import { IconContext } from "react-icons";
 
-function DonorNavbar() {
+function CommunityNavbar() {
   const [sidebar, setSidebar] = useState(false);
   const { logout } = UserAuthContext();
   const Navigate = useNavigate();
@@ -39,7 +39,7 @@ function DonorNavbar() {
               </Link>
             </li>
             <li>
-              {DonorSidebarData.map((item, index) => {
+              {CommunitySidebarData.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
                     <Link to={item.path}>
@@ -61,4 +61,4 @@ function DonorNavbar() {
   );
 }
 
-export default DonorNavbar;
+export default CommunityNavbar;

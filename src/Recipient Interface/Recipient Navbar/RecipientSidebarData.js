@@ -1,25 +1,20 @@
 import React from "react";
 import * as AiIcons from "react-icons/ai";
+import * as GiIcons from "react-icons/gi";
 import * as RiIcons from "react-icons/ri";
 import * as MdIcons from "react-icons/md";
 
-export const AdminSidebarData = [
+export const RecipientSidebarData = [
   {
     title: "Home",
-    path: "Homepage",
+    path: "HomePage",
     icon: <AiIcons.AiFillHome />,
     cName: "nav-text",
   },
   {
-    title: "Approve Location",
-    path: "ApproveFoodbankLocation",
-    icon: <MdIcons.MdAddLocationAlt />,
-    cName: "nav-text",
-  },
-  {
-    title: "Delete Location",
-    path: "DeleteLocation",
-    icon: <MdIcons.MdLocationOff />,
+    title: "Collect Now",
+    path: "CollectDonation",
+    icon: <GiIcons.GiReceiveMoney />,
     cName: "nav-text",
   },
   {

@@ -33,7 +33,7 @@ const customStyles = {
   container: {
     display: "flex",
     alignItems: "center",
-    height: "100vh",
+    height: "110vh",
     backgroundColor: "#BDFFB1", // Change this to the color you prefer
     padding: "4rem",
     boxShadow:
@@ -167,11 +167,30 @@ function ViewProfile() {
           {/* Left Section */}
           <div style={customStyles.leftSection}>
             {/* Content for the left section goes here */}
-            <img
-              src={profilepic}
-              alt="Profile"
-              style={{ width: "200px", height: "200px" }}
-            />
+            <div
+              style={{
+                width: "200px",
+                height: "200px",
+                borderRadius: "50%",
+                overflow: "hidden",
+                position: "relative",
+                backgroundColor: "#f8f8f8", // Set a background color to match the container
+              }}
+            >
+              <img
+                src={profilepic}
+                alt="Profile"
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                  position: "absolute",
+                  top: "0",
+                  left: "0",
+                }}
+              />
+            </div>
             {/* Display the name of the user */}
             <h5 style={{ marginTop: "10px" }}>{userData.name}</h5>
           </div>
@@ -212,7 +231,7 @@ function ViewProfile() {
               </div>
               <div style={{ textAlign: "right", marginTop: "20px" }}>
                 {/* Use Link to wrap the button and specify the "to" attribute for redirection */}
-                <Link to="/EditProfile">
+                <Link to="../EditProfile">
                   <Button
                     variant="success"
                     type="submit"

@@ -1,11 +1,14 @@
-// import React from "react";
-// import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-// import SideNavBar from "../SideNavBar/SideNavBar";
+import React from "react";
+import RecipientNavbar from "./Recipient Navbar/RecipientNavbar";
+import { Outlet } from "react-router-dom";
 
-// function RecipientInterface() {
-//   return (
+function RecipientInterface() {
+  return (
+    <div>
+      <RecipientNavbar />
+      <Outlet />
+    </div>
+  );
+}
 
-//   );
-// }
-
-// export default RecipientInterface;
+export default RecipientInterface;

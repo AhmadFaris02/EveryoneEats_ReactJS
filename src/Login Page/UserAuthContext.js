@@ -1,4 +1,5 @@
 import { onAuthStateChanged } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { useEffect, useState } from "react";
 import { auth } from "../Backend Firebase/FirebaseAuth";
 import { doc, getDoc, collection, getDocs } from "firebase/firestore";
@@ -20,6 +21,10 @@ function UserAuthContext() {
     });
 
     return locationsData;
+  };
+
+  const logout = () => {
+    return signOut(auth);
   };
 
   useEffect(() => {
@@ -51,6 +56,7 @@ function UserAuthContext() {
     userData,
     getLocations,
     userDocument,
+    logout,
   };
 }
 

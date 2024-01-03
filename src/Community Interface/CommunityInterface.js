@@ -1,10 +1,12 @@
 import React from "react";
-import ApplyFoodbankLocation from "./ApplyFoodbankLocation";
+import CommunityNavbar from "./Community Navbar/CommunityNavbar";
+import { Outlet } from "react-router-dom";
 
 function CommunityInterface() {
   return (
     <div>
-      <ApplyFoodbankLocation />
+      <CommunityNavbar />
+      <Outlet />
     </div>
   );
 }
