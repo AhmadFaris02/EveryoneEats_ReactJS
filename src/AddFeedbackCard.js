@@ -17,7 +17,7 @@ function AddFeedbackCard({ locationName, comment, rating, onDelete }) {
         <div style={{ marginLeft: 'auto', display: 'flex', alignItems: 'center' }}>
           <StarRatings
             rating={rating}
-            starRatedColor="blue"
+            starRatedColor="gold"
             numberOfStars={5} // Assuming a 5-star rating system
             name={`rating-${locationName}`}
             starDimension={starSize} // Set a fixed star size

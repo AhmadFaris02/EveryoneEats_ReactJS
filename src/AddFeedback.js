@@ -12,6 +12,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import { Button, Form } from "react-bootstrap";
 import RatingSelect from "./RatingSelect";
 import AddFeedbackCard from "./AddFeedbackCard";
+import Swal from 'sweetalert2';
 
 const customStyles = {
   // Define your custom styles here
@@ -208,6 +209,33 @@ const AddFeedback = () => {
     }
   };
 
+  const swalWithBootstrapButtons = Swal.mixin({
+    customClass: {
+      confirmButton: 'btn btn-success',
+      cancelButton: 'btn btn-danger',
+    },
+    buttonsStyling: false,
+  });
+
+  const handleConfirmSubmit = async (event) => {
+    try {
+      event.preventDefault(); // Prevent the default form submission
+      await handleSubmit(event); // Pass the event object to handleSubmit
+      swalWithBootstrapButtons.fire({
+        title: 'Submitted!',
+        text: 'Your feedback has been submitted.',
+        icon: 'success',
+      });
+    } catch (error) {
+      console.error('Error submitting feedback:', error);
+      swalWithBootstrapButtons.fire({
+        title: 'Error',
+        text: 'There was an error submitting your feedback.',
+        icon: 'error',
+      });
+    }
+  };
+
   const handleDelete = async (feedback) => {
     try {
       // Implement the delete functionality by deleting the Firestore document
@@ -282,10 +310,15 @@ const AddFeedback = () => {
             <br></br>
 
             <div>
-              <Button variant="success" type="submit" onClick={handleSubmit}>
-                {" "}
-                Submit{" "}
-              </Button>
+            <Button
+              variant="success"
+              type="button"
+              onClick={(event) => handleConfirmSubmit(event)}
+            >
+              {' '}
+              Submit{' '}
+            </Button>
+
             </div>
           </Form>
         </header>
