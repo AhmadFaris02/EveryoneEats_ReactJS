@@ -59,12 +59,14 @@
                   rgba(0, 0, 0, 0.09) 0px -3px 5px;
   }
 
+  .ViewContainer {
+    height: 1100px;
+    background-color: #BDFFB1;
+  }
+
   body {
     border-radius: 25px;  
-  
-          background: "white";
-          box-shadow: "35px 35px 61px #494646, -35px -35px 61px #c1baba";
-           background-color: #BDFFB1; 
+           /* background-color: #BDFFB1; */
           /* background-color: #D6EAF8; */
           
           padding: "2rem";
@@ -95,9 +97,6 @@ table {
     background-color: #55608f;
   }
   
-  tbody tr:hover {
-    background-color: rgba(255,255,255,0.3);
-  }
   
   td:hover:before {
    

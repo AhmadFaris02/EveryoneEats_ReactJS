@@ -37,13 +37,16 @@ export default function ViewFoodbankLocation() {
       width: "90%",
       marginLeft: "-5px",
       marginRight: "-5px",
-
       //display: 'flex',
       //flexDirection: 'column',
       justifyContent: "center",
       alignItems: "center",
       height: "20vh",
     },
+
+    body:{
+      position: "relative",
+    }
   };
 
   // Fetch data from the database
@@ -163,9 +166,11 @@ export default function ViewFoodbankLocation() {
 
   /*The actual Code */
   return (
-    <div>
+    <div className="ViewContainer">
+      
       <div style={customStyles.row} className="row">
         {/*Map Section */}
+        
         <div className="MapInformation">
           <div className="mapDetailsOverlay">
             Longitude: {lng} | Latitude: {lat} | Zoom: {zoom}
