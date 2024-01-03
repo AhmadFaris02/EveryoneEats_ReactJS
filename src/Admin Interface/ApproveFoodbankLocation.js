@@ -166,7 +166,7 @@ export default function ApproveFoodbankLocation() {
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        height: "100vh",
+        height: "100vh",       
         backgroundColor: "#BDFFB1",
       }}
     >
