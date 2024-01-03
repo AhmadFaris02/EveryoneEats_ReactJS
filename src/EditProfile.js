@@ -4,6 +4,7 @@ import { Link, useNavigate, useLocation } from "react-router-dom";
 import { Button, Form } from "react-bootstrap";
 import { db } from "./Backend Firebase/FirebaseDatabase";
 import UserAuthContext from "./Login Page/UserAuthContext";
+import Swal from 'sweetalert2';
 
 const inputStyle = {
   width: "400px", // Adjust the width as needed
@@ -164,8 +165,13 @@ function EditProfile() {
         marital_status: userMaritalStatus,
       };
       updateDoc(userDocumentRef, updatedData);
-      console.log("Document successfully updated!");
-      alert("Document successfully updated!");
+      Swal.fire({
+        position: "center",
+        icon: "success",
+        title: "Your profile has been updated",
+        showConfirmButton: false,
+        timer: 1500
+      });
       navigate(`/${currentInterface}/ViewProfile`);
     } catch (error) {
       console.error("Error updating document: " + error);
