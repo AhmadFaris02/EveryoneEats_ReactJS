@@ -4,6 +4,7 @@ import "./map.css";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 import { db } from "../Backend Firebase/FirebaseDatabase";
+import UserAuthContext from "../Login Page/UserAuthContext";
 import { addDoc, collection } from "firebase/firestore";
 import Swal from "sweetalert2";
 import { Marker } from "react-map-gl";
@@ -96,6 +97,8 @@ function ApplyFoodbankLocation() {
   const [phoneNum, setPhoneNum] = useState("");
   const [marker, setMarker] = useState(null);
 
+  const { userData } = UserAuthContext();
+
   const handleFocus1 = () => {
     setIsFocused1(true);
   };
@@ -134,7 +137,8 @@ function ApplyFoodbankLocation() {
     locationName,
     locationAddress,
     locationPhoneNumber,
-    marker
+    marker,
+    communityName
   ) => {
     try {
       const pendingLocationRef = collection(db, "Pending_Foodbank_Location");
@@ -144,6 +148,7 @@ function ApplyFoodbankLocation() {
         phonenum: locationPhoneNumber,
         longitude: marker.getLngLat().lng,
         latitiude: marker.getLngLat().lat,
+        community: communityName,
       });
 
       console.log("Document written with ID: ", docRef.id);
@@ -151,6 +156,7 @@ function ApplyFoodbankLocation() {
         title: "Success",
         text: "Your food bank location has been submitted",
         icon: "success",
+        timer: 2000,
       });
     } catch (error) {
       console.error("Error adding the food bank location:", error);
@@ -172,7 +178,13 @@ function ApplyFoodbankLocation() {
 
   const handleButtonClick = () => {
     if (marker) {
-      addFoodbankLocation(locationName, address, phoneNum, marker);
+      addFoodbankLocation(
+        locationName,
+        address,
+        phoneNum,
+        marker,
+        userData.name
+      );
     } else {
       alert("Please add a marker on the map before submitting.");
     }
