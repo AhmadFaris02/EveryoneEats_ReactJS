@@ -8,6 +8,7 @@ import {
   doc,
 } from "firebase/firestore";
 import { db } from "./Backend Firebase/FirebaseDatabase"; // Import your Firebase configuration
+import UserAuthContext from "./Login Page/UserAuthContext";
 import Dropdown from "react-bootstrap/Dropdown";
 import { Button, Form } from "react-bootstrap";
 import RatingSelect from "./RatingSelect";
@@ -97,20 +98,27 @@ const customStyles = {
   },
 };
 
-const FeedbackList = ({ feedbackData, onDelete }) => (
-  <div style={{ maxHeight: "500px", overflowY: "auto" }}>
-    <h2 style={{ fontSize: "26px" }}>Feedback Provided</h2>
-    {feedbackData.map((feedback, index) => (
-      <AddFeedbackCard
-        key={index}
-        locationName={feedback.location}
-        comment={feedback.comment}
-        rating={feedback.rating}
-        onDelete={onDelete && (() => onDelete(feedback))}
-      />
-    ))}
-  </div>
-);
+const FeedbackList = ({ feedbackData, onDelete, userData }) => {
+  const userFeedback = feedbackData.filter(
+    (feedback) => feedback.feedback_from === userData.name
+  );
+
+  return (
+    <div style={{ maxHeight: "500px", overflowY: "auto" }}>
+      <h2 style={{ fontSize: "26px" }}>Your Feedback</h2>
+      {userFeedback.map((feedback, index) => (
+        <AddFeedbackCard
+          key={index}
+          locationName={feedback.location}
+          comment={feedback.comment}
+          rating={feedback.rating}
+          feedback_from={feedback.feedback_from}
+          onDelete={onDelete && (() => onDelete(feedback))}
+        />
+      ))}
+    </div>
+  );
+};
 
 const AddFeedback = () => {
   const [locations, setLocations] = useState([]);
@@ -119,6 +127,7 @@ const AddFeedback = () => {
   const [isFocused2, setIsFocused2] = useState(false);
   const [selectedRating, setSelectedRating] = useState(0);
   const [feedbackData, setFeedbackData] = useState([]);
+  const { userData } = UserAuthContext();
 
   const formRef = useRef(null);
 
@@ -197,6 +206,7 @@ const AddFeedback = () => {
         location: selectedLocation,
         comment: comment,
         rating: selectedRating,
+        feedback_from: userData.name,
       });
 
       console.log("Document written with ID: ", docRef.id);
@@ -221,6 +231,11 @@ const AddFeedback = () => {
     try {
       event.preventDefault(); // Prevent the default form submission
       await handleSubmit(event); // Pass the event object to handleSubmit
+  
+      // Fetch updated feedback data after submission
+      const updatedFeedbackList = await fetchFeedback();
+      setFeedbackData(updatedFeedbackList);
+  
       swalWithBootstrapButtons.fire({
         title: 'Submitted!',
         text: 'Your feedback has been submitted.',
@@ -235,6 +250,7 @@ const AddFeedback = () => {
       });
     }
   };
+  
 
   const handleDelete = async (feedback) => {
     try {
@@ -244,7 +260,8 @@ const AddFeedback = () => {
         if (
           doc.data().location === feedback.location &&
           doc.data().rating === feedback.rating &&
-          doc.data().comment === feedback.comment
+          doc.data().comment === feedback.comment &&
+          doc.data().feedback_from === feedback.feedback_from
         ) {
           await deleteDoc(doc.ref);
           console.log("Feedback deleted successfully");
@@ -328,7 +345,7 @@ const AddFeedback = () => {
 
       <div style={customStyles.main}>
         {" "}
-        <FeedbackList feedbackData={feedbackData} onDelete={handleDelete} />
+        <FeedbackList feedbackData={feedbackData} onDelete={handleDelete} userData={userData} />
       </div>
     </div>
   );

@@ -125,11 +125,11 @@ const ViewFeedback = () => {
             {feedbackData.length > 0 ? (
               feedbackData.map((feedback, index) => (
                 <FeedbackCard
-                  key={index}
-                  locationName={feedback.location}
-                  comment={feedback.comment}
-                  rating={feedback.rating}
-                />
+                locationName={feedback.location}
+                comment={feedback.comment}
+                rating={feedback.rating}
+                feedbackFrom={feedback.feedback_from}
+              />
               ))
             ) : (
               <p>No feedbacks for this location</p>
