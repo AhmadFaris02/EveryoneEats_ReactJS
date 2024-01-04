@@ -5,6 +5,7 @@ import DataTable from "react-data-table-component";
 // import { MdEditDocument } from "react-icons/md";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { GoSearch } from "react-icons/go";
+import Swal from "sweetalert2";
 
 function DeleteFoodbank() {
   const columns = [
@@ -83,14 +84,32 @@ function DeleteFoodbank() {
   };
 
   const handleDelete = async (id) => {
-    console.log(`Delete location with ID: ${id}`);
-    await deleteLocation(id);
+    const result = await Swal.fire({
+      title: "Are you sure?",
+      text: "Once deleted, you will not be able to recover this location!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Yes, delete it!",
+    });
 
-    // Update local state to reflect the deletion
-    setData((prevData) => prevData.filter((row) => row.id !== id));
-    setFilteredData((prevFilteredData) =>
-      prevFilteredData.filter((row) => row.id !== id)
-    );
+    if (result.isConfirmed) {
+      console.log(`Delete location with ID: ${id}`);
+      await deleteLocation(id);
+
+      // Update local state to reflect the deletion
+      setData((prevData) => prevData.filter((row) => row.id !== id));
+      setFilteredData((prevFilteredData) =>
+        prevFilteredData.filter((row) => row.id !== id)
+      );
+
+      Swal.fire({
+        title: "Deleted!",
+        text: "The location has been deleted.",
+        icon: "success",
+      });
+    }
   };
 
   const handleFilter = (searchValue) => {
